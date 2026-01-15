@@ -49,10 +49,15 @@ This file contains the "knowledge base" of your project. Add magic numbers, comm
 
 A suite of tools for "Agent Self-Documentation". Useful if you are building AI agents that work on this codebase.
 
-*   **`scripts/agent_logger.py`**: Records thoughts, edits, and hypotheses to `logs/AGENT_TRACE.jsonl`.
-    *   `python scripts/agent_logger.py hypothesis --content "The bug is in the renderer"`
-*   **`scripts/knowledge_tracker.py`**: Reads the logs and generates `CURRENT_UNDERSTANDING.md`.
-*   **`scripts/reference_linker.py`**: Scans the understanding doc and links code symbols (like `MyClass`) to their source definitions.
+### Primary Hook (Use this!)
+*   **`scripts/agent_hook.py`**: The one-stop shop. It logs your thought, updates the summary, and links code automatically.
+    *   **Usage**: `python scripts/agent_hook.py "I am analyzing the renderer logic"`
+    *   **Hypothesis**: `python scripts/agent_hook.py --hypothesis "I think the buffer is overflowing"`
+
+### Underlying Tools (Advanced)
+*   **`scripts/agent_logger.py`**: Records raw logs to `logs/AGENT_TRACE.jsonl`.
+*   **`scripts/knowledge_tracker.py`**: Generates `CURRENT_UNDERSTANDING.md`.
+*   **`scripts/reference_linker.py`**: Links symbols in the understanding doc.
 
 ## CLI Options
 
