@@ -45,24 +45,32 @@ This file contains the "knowledge base" of your project. Add magic numbers, comm
 }
 ```
 
-## Agent Ops Tools
+## Agent Ops (Self-Documentation)
 
-A suite of tools for "Agent Self-Documentation". Useful if you are building AI agents that work on this codebase.
+This repository includes tools to let AI Agents document their own work automatically.
 
-### Primary Hook (Use this!)
-*   **`scripts/agent_hook.py`**: The one-stop shop. It logs your thought, updates the summary, and links code automatically.
-    *   **Usage**: `python scripts/agent_hook.py "I am analyzing the renderer logic"`
-    *   **Hypothesis**: `python scripts/agent_hook.py --hypothesis "I think the buffer is overflowing"`
+### Integration
+To enable an Agent to "think" into the system logs:
+1.  Copy the contents of `AGENT_INSTRUCTIONS.md`.
+2.  Paste it into the **System Prompt** of your Agent (e.g. ChatGPT, Claude, custom script).
+3.  The Agent will now automatically run the `agent_hook.py` tool as it works.
 
-### Underlying Tools (Advanced)
-*   **`scripts/agent_logger.py`**: Records raw logs to `logs/AGENT_TRACE.jsonl`.
-*   **`scripts/knowledge_tracker.py`**: Generates `CURRENT_UNDERSTANDING.md`.
-*   **`scripts/reference_linker.py`**: Links symbols in the understanding doc.
+### Manual Tool Usage
+If you are manually operating only, you can still use the hook:
+
+*   **Log a thought**: `python3 agent_hook.py "Analyzing the rendering pipeline"`
+*   **Log a hypothesis**: `python3 agent_hook.py --hypothesis "Maybe the Z-index is flipped"`
+
+### Underlying Tools
+*   **`agent_hook.py`**: The primary entry point.
+*   **`agent_logger.py`**: Records raw logs.
+*   **`knowledge_tracker.py`**: Updates `CURRENT_UNDERSTANDING.md`.
+*   **`reference_linker.py`**: Links symbols.
 
 ## CLI Options
 
 Both extractor and analyzer scripts support common arguments:
-*   `--source` / `-s`: Root directory to scan (default: current directory).
+*   `--source` / `-S`: Root directory to scan (default: current directory).
 *   `--exclude` / `-e`: Comma-separated list of folders to ignore (default: `vendor,build,third_party`).
 *   `--output` / `-o`: Output file path.
 *   `--verbose` / `-v`: Show detailed logs.
