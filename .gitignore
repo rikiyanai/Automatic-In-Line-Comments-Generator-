@@ -1,0 +1,5 @@
+# Ignored generated files
+comment_suggestions_report.md
+comment_patterns.json
+__pycache__/
+*.pyc

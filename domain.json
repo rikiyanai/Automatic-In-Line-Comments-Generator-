@@ -1,0 +1,20 @@
+{
+    "0xA000": "Terrain Height Base (Above Water)",
+    "0x8000": "Water Level",
+    "256": "Material ID Count / Texture Size",
+    "16": "Visual Cell Size / Shade Levels",
+    "4": "Elevation Ramps count",
+    "0xFF": "Byte Mask / Full Opacity",
+    "mat": "Material Definition",
+    "terrain": "Height Map Data",
+    "world": "Game World State",
+    "uv": "Texture Coordinates",
+    "tm": "Transformation Matrix",
+    "lc": "Light Color / Config",
+    "rc": "Render Context",
+    "h": "Height Value",
+    "w": "Width / Weight",
+    "id": "Unique Identifier",
+    "flags": "Bitmask Configuration",
+    "visual": "Visual Map Data (Material + Elev + Shade)"
+}
