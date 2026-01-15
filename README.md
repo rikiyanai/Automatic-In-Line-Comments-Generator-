@@ -45,9 +45,18 @@ This file contains the "knowledge base" of your project. Add magic numbers, comm
 }
 ```
 
+## Agent Ops Tools
+
+A suite of tools for "Agent Self-Documentation". Useful if you are building AI agents that work on this codebase.
+
+*   **`scripts/agent_logger.py`**: Records thoughts, edits, and hypotheses to `logs/AGENT_TRACE.jsonl`.
+    *   `python scripts/agent_logger.py hypothesis --content "The bug is in the renderer"`
+*   **`scripts/knowledge_tracker.py`**: Reads the logs and generates `CURRENT_UNDERSTANDING.md`.
+*   **`scripts/reference_linker.py`**: Scans the understanding doc and links code symbols (like `MyClass`) to their source definitions.
+
 ## CLI Options
 
-Both scripts support common arguments:
+Both extractor and analyzer scripts support common arguments:
 *   `--source` / `-s`: Root directory to scan (default: current directory).
 *   `--exclude` / `-e`: Comma-separated list of folders to ignore (default: `vendor,build,third_party`).
 *   `--output` / `-o`: Output file path.
