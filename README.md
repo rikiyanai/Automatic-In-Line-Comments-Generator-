@@ -1,4 +1,4 @@
-# Asciicker Comment Generator
+# Comment Generator
 
 A set of Python tools to automatically generate context-aware inline comments for C++ codebases. It learns from existing code patterns and uses a domain dictionary to provide meaningful explanations.
 
